@@ -93,7 +93,7 @@ function ProductDetail() {
           </Reveal>
           <Reveal delay={0.1}>
             <div className="border border-border">
-              {product.specs.map((s, i) => (
+              {product.specs.map((s: { label: string; value: string }, i: number) => (
                 <div key={s.label} className={`grid grid-cols-1 md:grid-cols-3 gap-4 p-5 ${i % 2 === 0 ? "bg-muted/40" : ""}`}>
                   <div className="text-xs uppercase tracking-widest text-brand-red font-semibold">{s.label}</div>
                   <div className="md:col-span-2 text-foreground font-medium">{s.value}</div>
