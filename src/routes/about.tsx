@@ -1,3 +1,5 @@
+// routes/about.tsx
+
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
@@ -16,15 +18,18 @@ import {
   Zap,
   CheckCircle,
   Building,
-  Globe
+  Globe,
+  Phone,
+  Mail,
+  Clock
 } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Deosi Agriculture Works — 60+ Years of Reaper Craft" },
-      { name: "description", content: "Founded 1964 in Mansa, Punjab. Deosi Agriculture Works is India's trusted manufacturer of ISO-certified tractor-mounted reapers, serving farmers nationwide." },
-      { property: "og:title", content: "About Deosi Agriculture Works" },
+      { title: `About ${COMPANY.name} — 60+ Years of Reaper Craft` },
+      { name: "description", content: `Founded ${COMPANY.founded} in Mansa, Punjab. ${COMPANY.name} is India's trusted manufacturer of ISO-certified tractor-mounted reapers, serving farmers nationwide.` },
+      { property: "og:title", content: `About ${COMPANY.name}` },
       { property: "og:description", content: "Six decades of building India's most trusted tractor reapers." },
     ],
   }),
@@ -32,6 +37,14 @@ export const Route = createFileRoute("/about")({
 });
 
 function About() {
+  // Company details from your data
+  const companyName = COMPANY.name || "Deosi Agriculture Works";
+  const brandName = COMPANY.brand || "Deosi Reaper";
+  const foundedYear = COMPANY.founded || 1964;
+  const address = COMPANY.address || "Mansa, Punjab, India";
+  const phones = COMPANY.phones || ["+91 1652 227 103"];
+  const email = COMPANY.email || "deosireapers@gmail.com";
+
   // Extended values data
   const values = [
     { 
@@ -58,7 +71,7 @@ function About() {
 
   // Milestones data
   const milestones = [
-    { year: "1964", title: "The Beginning", description: "Founded in Mansa, Punjab with a vision to build durable farm implements." },
+    { year: "1964", title: "The Beginning", description: `Founded in Mansa, Punjab with a vision to build durable farm implements.` },
     { year: "1980", title: "First Reaper", description: "Launched our first tractor-mounted reaper for the wheat harvest season." },
     { year: "1995", title: "Expansion", description: "Expanded operations to serve farmers across North India." },
     { year: "2005", title: "ISO Certification", description: "Achieved ISO 9001:2008 certification for quality management." },
@@ -68,7 +81,7 @@ function About() {
 
   // Stats data
   const stats = [
-    { number: "60+", label: "Years of Excellence", icon: Calendar },
+    { number: `${new Date().getFullYear() - foundedYear}+`, label: "Years of Excellence", icon: Calendar },
     { number: "50,000+", label: "Farmers Served", icon: Users },
     { number: "500+", label: "Dealer Network", icon: Globe },
     { number: "7", label: "Crops Supported", icon: Leaf },
@@ -80,7 +93,7 @@ function About() {
   const certifications = [
     { label: "ISO 9001:2008", icon: ShieldCheck, description: "International quality management standard" },
     { label: "Govt. of India Approved", icon: CheckCircle, description: "Approved by Ministry of Agriculture" },
-    { label: "Made in India", icon: Star, description: "Proudly manufactured in Mansa, Punjab" },
+    { label: "Made in India", icon: Star, description: `Proudly manufactured in Mansa, Punjab` },
     { label: "3+ Years Warranty", icon: Trophy, description: "Comprehensive coverage on all machines" },
   ];
 
@@ -89,7 +102,7 @@ function About() {
     { 
       name: "Kartar Singh Deosi", 
       role: "Founder", 
-      description: "Started Deosi Agriculture Works in 1964 with a vision to revolutionize Indian farming.",
+      description: `Started ${companyName} in 1964 with a vision to revolutionize Indian farming.`,
       years: "1964-1990"
     },
     { 
@@ -106,13 +119,17 @@ function About() {
     },
   ];
 
+  // Use images from your IMAGES export
+  const posterImage = IMAGES.posterCatalogue;
+  const reaperImage = IMAGES.reaperRedMounted;
+
   return (
     <>
       <PageHero
         eyebrow="About Us"
         title="Six decades of reaper craft."
-        description="From a workshop in Mansa, Punjab in 1964 to farms across India today — the Deosi story is one of steady, stubborn commitment to quality."
-        image={IMAGES.posterCatalogue}
+        description={`From a workshop in Mansa, Punjab in ${foundedYear} to farms across India today — the Deosi story is one of steady, stubborn commitment to quality.`}
+        image={posterImage}
       />
 
       {/* Legacy Stats */}
@@ -136,7 +153,11 @@ function About() {
         <div className="mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-16 items-center">
           <Reveal>
             <div className="relative">
-              <img src={IMAGES.reaperRedMounted} alt="Deosi Reaper" className="w-full aspect-[4/5] object-cover" />
+              <img 
+                src={reaperImage} 
+                alt={`${brandName} Reaper`} 
+                className="w-full aspect-[4/5] object-cover"
+              />
               <div className="absolute -bottom-6 -left-6 bg-brand-red p-6 max-w-[200px]">
                 <div className="font-heading text-3xl text-white">#1</div>
                 <div className="text-xs uppercase tracking-widest text-brand-yellow mt-1">India's No.1 Reaper</div>
@@ -146,11 +167,11 @@ function About() {
           <Reveal delay={0.1}>
             <div className="text-xs uppercase tracking-[0.3em] text-brand-red mb-4">Our Story</div>
             <h2 className="font-heading text-5xl uppercase leading-[0.95] mb-6">
-              Since <span className="text-brand-red">1964</span>.
+              Since <span className="text-brand-red">{foundedYear}</span>.
             </h2>
             <div className="space-y-5 text-muted-foreground leading-relaxed text-lg">
               <p>
-                Deosi Agriculture Works began in Mansa, Punjab with a single conviction: farmers deserve
+                {companyName} began in Mansa, Punjab with a single conviction: farmers deserve
                 implements that hold up. Over sixty years and thousands of machines later, that conviction still
                 sets the bar in our workshop.
               </p>
@@ -168,7 +189,7 @@ function About() {
             {/* Quick stats row */}
             <div className="grid grid-cols-3 gap-4 mt-8 pt-8 border-t border-border">
               <div>
-                <div className="font-heading text-2xl text-brand-red">60+</div>
+                <div className="font-heading text-2xl text-brand-red">{new Date().getFullYear() - foundedYear}+</div>
                 <div className="text-xs uppercase tracking-widest text-muted-foreground">Years</div>
               </div>
               <div>
@@ -223,7 +244,7 @@ function About() {
       </section>
 
       {/* Values Section */}
-      <section className="py-24 bg-brand-charcoal text-brand-cream grain-overlay">
+      <section className="py-24 bg-brand-charcoal text-brand-cream">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal>
             <div className="text-center max-w-2xl mx-auto mb-16">
@@ -279,19 +300,20 @@ function About() {
             <div className="text-xs uppercase tracking-[0.3em] text-brand-red mb-4">Company Snapshot</div>
             <h2 className="font-heading text-4xl md:text-5xl uppercase mb-4">At a glance.</h2>
             <p className="text-muted-foreground mb-10 max-w-2xl">
-              Everything you need to know about Deosi Agriculture Works — from our foundation to our reach today.
+              Everything you need to know about {companyName} — from our foundation to our reach today.
             </p>
           </Reveal>
           <div className="border border-border rounded-lg overflow-hidden">
             {[
-              ["Company", COMPANY.name],
-              ["Brand", COMPANY.brand],
-              ["Founded", String(COMPANY.founded)],
+              ["Company", companyName],
+              ["Brand", brandName],
+              ["Founded", String(foundedYear)],
               ["Certification", "ISO 9001:2008 · Govt. of India Approved"],
               ["Specialisation", "Tractor Mounted Reapers — Wheat, Paddy, Mustard, Soyabean, Jubar, Bajra, Maize"],
               ["Distribution", "Punjab, Haryana, UP, MP, Rajasthan and other Indian states"],
-              ["Headquarters", "Mansa, Punjab, India"],
-              ["Product Range", "4+ Models across different crop types and field conditions"],
+              ["Headquarters", address],
+              ["Showroom", COMPANY.showroom || "Link Road, Near Bus Stand, Mansa – 151505"],
+              ["Product Range", "6+ Models across different crop types and field conditions"],
               ["Customer Base", "50,000+ farmers across 10+ Indian states"],
               ["Warranty", "Comprehensive 3+ years warranty on all machines"],
             ].map(([k, v], i) => (
@@ -304,6 +326,7 @@ function About() {
                   {k === "Headquarters" && <MapPin className="w-4 h-4" />}
                   {k === "Customer Base" && <Users className="w-4 h-4" />}
                   {k === "Warranty" && <Trophy className="w-4 h-4" />}
+                  {k === "Showroom" && <Building className="w-4 h-4" />}
                   {k}
                 </div>
                 <div className="md:col-span-2 text-foreground">{v}</div>
@@ -343,9 +366,85 @@ function About() {
         </div>
       </section>
 
+      {/* Location & Contact Section */}
+      <section className="py-24 bg-muted/20">
+        <div className="mx-auto max-w-7xl px-6">
+          <Reveal>
+            <div className="text-center max-w-2xl mx-auto mb-16">
+              <div className="text-xs uppercase tracking-[0.3em] text-brand-red mb-4">Visit Us</div>
+              <h2 className="font-heading text-4xl md:text-5xl uppercase leading-[0.95]">
+                Find us <span className="text-brand-red">in Mansa</span>.
+              </h2>
+            </div>
+          </Reveal>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            <Reveal>
+              <div className="border border-border p-8 rounded-lg">
+                <div className="flex items-start gap-4">
+                  <MapPin className="w-6 h-6 text-brand-red flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="font-heading text-lg uppercase mb-2">Factory & Headquarters</h3>
+                    <p className="text-muted-foreground">{address}</p>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+            
+            <Reveal delay={0.1}>
+              <div className="border border-border p-8 rounded-lg">
+                <div className="flex items-start gap-4">
+                  <Building className="w-6 h-6 text-brand-red flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="font-heading text-lg uppercase mb-2">Showroom</h3>
+                    <p className="text-muted-foreground">{COMPANY.showroom || "Link Road, Near Bus Stand, Mansa – 151505, Punjab, India"}</p>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 mt-6">
+            <Reveal delay={0.05}>
+              <div className="border border-border p-8 rounded-lg">
+                <div className="flex items-start gap-4">
+                  <Phone className="w-6 h-6 text-brand-red flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="font-heading text-lg uppercase mb-2">Call Us</h3>
+                    {phones.map((phone, index) => (
+                      <p key={index} className="text-muted-foreground">
+                        <a href={`tel:${phone.replace(/\s/g, "")}`} className="hover:text-brand-red transition-colors">
+                          {phone}
+                        </a>
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.1}>
+              <div className="border border-border p-8 rounded-lg">
+                <div className="flex items-start gap-4">
+                  <Mail className="w-6 h-6 text-brand-red flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="font-heading text-lg uppercase mb-2">Email Us</h3>
+                    <p className="text-muted-foreground">
+                      <a href={`mailto:${email}`} className="hover:text-brand-red transition-colors">
+                        {email}
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="relative overflow-hidden bg-brand-red text-white py-20">
-        <div className="absolute inset-0 diagonal-stripes opacity-10" />
+        <div className="absolute inset-0 bg-black/10" />
         <div className="relative mx-auto max-w-7xl px-6 flex flex-wrap items-center justify-between gap-8">
           <div>
             <div className="text-xs uppercase tracking-[0.3em] text-brand-yellow mb-3">Connect With Us</div>
@@ -355,13 +454,13 @@ function About() {
           </div>
           <div className="flex flex-col sm:flex-row gap-4">
             <a 
-              href={`tel:${COMPANY.phones[0].replace(/\s/g, "")}`} 
+              href={`tel:${phones[0]?.replace(/\s/g, "") || "9815780231"}`} 
               className="border-2 border-white/40 hover:bg-white hover:text-brand-red px-6 py-3 text-sm uppercase tracking-widest font-semibold transition-colors"
             >
               Call Us Now
             </a>
             <a 
-              href={`mailto:${COMPANY.email}`}
+              href={`mailto:${email}`}
               className="bg-brand-yellow text-brand-charcoal hover:bg-white px-6 py-3 text-sm uppercase tracking-widest font-semibold transition-colors"
             >
               Email Us
