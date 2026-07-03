@@ -1,0 +1,4 @@
+# .env (in root of your project)
+VITE_EMAILJS_SERVICE_ID=service_0wevwie
+VITE_EMAILJS_TEMPLATE_ID=template_5qsytvm
+VITE_EMAILJS_PUBLIC_KEY=yqEbcoE9aSYCezX0O

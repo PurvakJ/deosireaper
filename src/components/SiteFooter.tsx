@@ -44,7 +44,7 @@ export function SiteFooter() {
               <li key={p} className="flex gap-3"><Phone className="w-4 h-4 mt-0.5 text-brand-red shrink-0" /> <a href={`tel:${p.replace(/\s/g, "")}`} className="hover:text-brand-yellow">{p}</a></li>
             ))}
             <li className="flex gap-3"><Mail className="w-4 h-4 mt-0.5 text-brand-red shrink-0" /> <a href={`mailto:${COMPANY.email}`} className="hover:text-brand-yellow">{COMPANY.email}</a></li>
-            <li className="flex gap-3"><Globe className="w-4 h-4 mt-0.5 text-brand-red shrink-0" /> {COMPANY.website}</li>
+
           </ul>
         </div>
 
