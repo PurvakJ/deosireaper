@@ -1,3 +1,5 @@
+// routes/gallery.tsx
+
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
@@ -5,6 +7,20 @@ import { IMAGES } from "@/lib/site-data";
 import { motion } from "motion/react";
 import { useState } from "react";
 import { X, Download, Grid, LayoutGrid } from "lucide-react";
+
+// Import all images from assets/products folder
+import img1 from "@/assets/products/1.jpeg";
+import img2 from "@/assets/products/2.jpeg";
+import img3 from "@/assets/products/3.jpeg";
+import img4 from "@/assets/products/4.jpeg";
+import img5 from "@/assets/products/5.jpeg";
+import img6 from "@/assets/products/6.jpeg";
+import img7 from "@/assets/products/7.jpeg";
+import img8 from "@/assets/products/8.jpeg";
+import img9 from "@/assets/products/9.jpeg";
+import img10 from "@/assets/products/10.jpeg";
+import img11 from "@/assets/products/11.jpeg";
+import img12 from "@/assets/products/12.jpeg";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -18,13 +34,13 @@ export const Route = createFileRoute("/gallery")({
   component: Gallery,
 });
 
-// Import images from assets/products folder
-const productImages = Array.from({ length: 12 }, (_, i) => {
-  const num = i + 1;
-  return `/src/assets/products/${num}.jpeg`;
-});
+// Create array of imported product images
+const productImages = [
+  img1, img2, img3, img4, img5, img6,
+  img7, img8, img9, img10, img11, img12
+];
 
-// Combine with existing IMAGES (removed the last 4 images)
+// Combine with existing IMAGES
 const galleryImages = [
   ...productImages,
   IMAGES.reaperYellowSonalika,
@@ -114,7 +130,7 @@ function Gallery() {
             {filteredImages.length} {filteredImages.length === 1 ? "photo" : "photos"}
           </div>
 
-          {/* 3x3 Grid with uniform aspect ratio */}
+          {/* Grid with uniform aspect ratio */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {filteredImages.map((src, i) => (
               <Reveal key={i} delay={(i % 3) * 0.06}>
