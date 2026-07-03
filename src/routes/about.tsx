@@ -9,19 +9,13 @@ import {
   Users, 
   Calendar, 
   Trophy, 
-  Truck, 
   ShieldCheck,
   Star,
   ThumbsUp,
   Leaf,
-  TrendingUp,
-  Clock,
-  Heart,
   Zap,
   CheckCircle,
   Building,
-  GitCommit,
-  Target,
   Globe
 } from "lucide-react";
 

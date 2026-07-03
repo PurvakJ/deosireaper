@@ -6,7 +6,6 @@ import {
   Award, 
   Cog, 
   ShieldCheck, 
-  Tractor, 
   Wheat, 
   Users,
   MapPin,
@@ -17,7 +16,6 @@ import {
   Headphones,
   Leaf,
   Zap,
-  BarChart,
   CheckCircle,
   TrendingUp,
   Calendar

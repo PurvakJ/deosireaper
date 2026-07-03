@@ -12,18 +12,12 @@ import {
   Truck,
   Wrench,
   Wheat,
-  Tractor,
-  Clock,
-  ThumbsUp,
   Star,
   TrendingUp,
   Leaf,
   Zap,
   BarChart,
   Calendar,
-  MapPin,
-  Mail,
-  MessageCircle
 } from "lucide-react";
 
 export const Route = createFileRoute("/products/$slug")({
