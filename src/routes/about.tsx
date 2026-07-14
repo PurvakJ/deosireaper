@@ -42,7 +42,7 @@ function About() {
   const brandName = COMPANY.brand || "Deosi Reaper";
   const foundedYear = COMPANY.founded || 1964;
   const address = COMPANY.address || "Mansa, Punjab, India";
-  const phones = COMPANY.phones || ["+91 1652 227 103"];
+  const phones = ["+91 98158 35221", "+91 98157 80231"];
   const email = COMPANY.email || "deosireapers@gmail.com";
 
   // Extended values data
@@ -50,7 +50,7 @@ function About() {
     { 
       icon: Award, 
       title: "Quality First", 
-      body: "ISO 9001:2008 certified processes. Every unit hand-inspected before dispatch." 
+      body: "ISO 9001:2015 certified processes. Every unit hand-inspected before dispatch." 
     },
     { 
       icon: Wrench, 
@@ -74,7 +74,7 @@ function About() {
     { year: "1964", title: "The Beginning", description: `Founded in Mansa, Punjab with a vision to build durable farm implements.` },
     { year: "1980", title: "First Reaper", description: "Launched our first tractor-mounted reaper for the wheat harvest season." },
     { year: "1995", title: "Expansion", description: "Expanded operations to serve farmers across North India." },
-    { year: "2005", title: "ISO Certification", description: "Achieved ISO 9001:2008 certification for quality management." },
+    { year: "2005", title: "ISO Certification", description: "Achieved ISO 9001:2015 certification for quality management." },
     { year: "2010", title: "Government Approval", description: "Received Govt. of India approval for all reaper models." },
     { year: "2024", title: "60 Years Strong", description: "Celebrating six decades of serving the farming community." },
   ];
@@ -91,30 +91,24 @@ function About() {
 
   // Certifications data
   const certifications = [
-    { label: "ISO 9001:2008", icon: ShieldCheck, description: "International quality management standard" },
+    { label: "ISO 9001:2015", icon: ShieldCheck, description: "International quality management standard" },
     { label: "Govt. of India Approved", icon: CheckCircle, description: "Approved by Ministry of Agriculture" },
     { label: "Made in India", icon: Star, description: `Proudly manufactured in Mansa, Punjab` },
     { label: "3+ Years Warranty", icon: Trophy, description: "Comprehensive coverage on all machines" },
   ];
 
-  // Team/Leadership data
+  // Team/Leadership data - only two entries
   const leadership = [
     { 
-      name: "Kartar Singh Deosi", 
+      name: "Darshan Singh Deosi", 
       role: "Founder", 
       description: `Started ${companyName} in 1964 with a vision to revolutionize Indian farming.`,
       years: "1964-1990"
     },
     { 
-      name: "Gurmeet Singh Deosi", 
-      role: "Chairman", 
-      description: "Led the company through expansion and ISO certification, establishing Deosi as India's No.1 reaper manufacturer.",
-      years: "1990-2020"
-    },
-    { 
-      name: "Harpreet Singh Deosi", 
+      name: "Gurlal Singh Deosi", 
       role: "Managing Director", 
-      description: "Continuing the legacy with innovation, technology integration, and nationwide expansion.",
+      description: "Continuing the legacy with innovation, technology integration, and expansion.",
       years: "2020-Present"
     },
   ];
@@ -176,7 +170,7 @@ function About() {
                 sets the bar in our workshop.
               </p>
               <p>
-                Today we're India's No.1 manufacturer of tractor-mounted reapers — ISO 9001:2008 certified,
+                Today we're India's No.1 manufacturer of tractor-mounted reapers — ISO 9001:2015 certified,
                 Govt. of India approved, and shipped to distributors across Punjab, Haryana, Uttar Pradesh,
                 Madhya Pradesh, Rajasthan and beyond.
               </p>
@@ -308,11 +302,10 @@ function About() {
               ["Company", companyName],
               ["Brand", brandName],
               ["Founded", String(foundedYear)],
-              ["Certification", "ISO 9001:2008 · Govt. of India Approved"],
+              ["Certification", "ISO 9001:2015 · Govt. of India Approved"],
               ["Specialisation", "Tractor Mounted Reapers — Wheat, Paddy, Mustard, Soyabean, Jubar, Bajra, Maize"],
               ["Distribution", "Punjab, Haryana, UP, MP, Rajasthan and other Indian states"],
               ["Headquarters", address],
-              ["Showroom", COMPANY.showroom || "Link Road, Near Bus Stand, Mansa – 151505"],
               ["Product Range", "6+ Models across different crop types and field conditions"],
               ["Customer Base", "50,000+ farmers across 10+ Indian states"],
               ["Warranty", "Comprehensive 3+ years warranty on all machines"],
@@ -326,7 +319,6 @@ function About() {
                   {k === "Headquarters" && <MapPin className="w-4 h-4" />}
                   {k === "Customer Base" && <Users className="w-4 h-4" />}
                   {k === "Warranty" && <Trophy className="w-4 h-4" />}
-                  {k === "Showroom" && <Building className="w-4 h-4" />}
                   {k}
                 </div>
                 <div className="md:col-span-2 text-foreground">{v}</div>
@@ -336,7 +328,7 @@ function About() {
         </div>
       </section>
 
-      {/* Leadership Section */}
+      {/* Leadership Section - Only two entries */}
       <section className="py-24">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal>
@@ -348,7 +340,7 @@ function About() {
               <p className="text-muted-foreground mt-4">Three generations of dedication to Indian agriculture.</p>
             </div>
           </Reveal>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {leadership.map((leader, i) => (
               <Reveal key={leader.name} delay={i * 0.1}>
                 <div className="border border-border p-8 hover:border-brand-red transition-all">
@@ -366,7 +358,7 @@ function About() {
         </div>
       </section>
 
-      {/* Location & Contact Section */}
+      {/* Location & Contact Section - Showroom removed */}
       <section className="py-24 bg-muted/20">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal>
@@ -378,7 +370,7 @@ function About() {
             </div>
           </Reveal>
           
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
             <Reveal>
               <div className="border border-border p-8 rounded-lg">
                 <div className="flex items-start gap-4">
@@ -390,21 +382,7 @@ function About() {
                 </div>
               </div>
             </Reveal>
-            
-            <Reveal delay={0.1}>
-              <div className="border border-border p-8 rounded-lg">
-                <div className="flex items-start gap-4">
-                  <Building className="w-6 h-6 text-brand-red flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-heading text-lg uppercase mb-2">Showroom</h3>
-                    <p className="text-muted-foreground">{COMPANY.showroom || "Link Road, Near Bus Stand, Mansa – 151505, Punjab, India"}</p>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-          </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mt-6">
             <Reveal delay={0.05}>
               <div className="border border-border p-8 rounded-lg">
                 <div className="flex items-start gap-4">
@@ -422,7 +400,9 @@ function About() {
                 </div>
               </div>
             </Reveal>
+          </div>
 
+          <div className="grid md:grid-cols-1 gap-8 mt-6 max-w-3xl mx-auto">
             <Reveal delay={0.1}>
               <div className="border border-border p-8 rounded-lg">
                 <div className="flex items-start gap-4">
@@ -454,7 +434,7 @@ function About() {
           </div>
           <div className="flex flex-col sm:flex-row gap-4">
             <a 
-              href={`tel:${phones[0]?.replace(/\s/g, "") || "9815780231"}`} 
+              href={`tel:${phones[0]?.replace(/\s/g, "") || "9815835221"}`} 
               className="border-2 border-white/40 hover:bg-white hover:text-brand-red px-6 py-3 text-sm uppercase tracking-widest font-semibold transition-colors"
             >
               Call Us Now

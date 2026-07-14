@@ -25,7 +25,7 @@ export function SiteNav() {
         <div className="mx-auto max-w-7xl px-6 py-2 flex items-center justify-between">
           <div className="flex gap-6">
             <span className="text-brand-yellow">★ India's No.1</span>
-            <span>ISO 9001:2008 Certified</span>
+            <span>ISO 9001:2015 Certified</span>
             <span>Approved by Govt. of India</span>
           </div>
           <a href={`tel:${COMPANY.phones[1].replace(/\s/g, "")}`} className="hover:text-brand-yellow flex items-center gap-2">

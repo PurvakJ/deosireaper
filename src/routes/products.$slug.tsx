@@ -53,9 +53,13 @@ function ProductDetail() {
   const next = PRODUCTS[(idx + 1) % PRODUCTS.length];
   const prev = PRODUCTS[(idx - 1 + PRODUCTS.length) % PRODUCTS.length];
 
+  // Only use the second phone number (skip first)
+  const phoneNumbers = COMPANY.phones.slice(1);
+  const primaryPhone = phoneNumbers[0] || "+91 98157 80231";
+
   // Additional product data
   const productHighlights = [
-    { icon: Award, label: "ISO 9001:2008 Certified", description: "International quality standard" },
+    { icon: Award, label: "ISO 9001:2015 Certified", description: "International quality standard" },
     { icon: Shield, label: "Govt. Approved", description: "Ministry of Agriculture approved" },
     { icon: Truck, label: "Nationwide Delivery", description: "Pan-India shipping available" },
     { icon: Wrench, label: "Easy Maintenance", description: "Field-serviceable design" },
@@ -174,7 +178,7 @@ function ProductDetail() {
                   Request Quote <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <a 
-                  href={`tel:${COMPANY.phones[0].replace(/\s/g, "")}`} 
+                  href={`tel:${primaryPhone.replace(/\s/g, "")}`} 
                   className="inline-flex items-center gap-2 border-2 border-brand-yellow text-brand-yellow hover:bg-brand-yellow hover:text-brand-charcoal px-8 py-4 text-sm uppercase tracking-widest font-semibold transition-colors"
                 >
                   <Phone className="w-4 h-4" /> Call Now
@@ -399,7 +403,7 @@ function ProductDetail() {
               Get Quote
             </Link>
             <a 
-              href={`tel:${COMPANY.phones[0].replace(/\s/g, "")}`}
+              href={`tel:${primaryPhone.replace(/\s/g, "")}`}
               className="border border-brand-cream/30 hover:border-brand-yellow text-brand-cream hover:text-brand-yellow px-6 py-2 text-sm uppercase tracking-widest font-semibold transition-colors"
             >
               Call Us

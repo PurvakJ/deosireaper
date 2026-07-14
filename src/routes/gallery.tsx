@@ -34,9 +34,9 @@ export const Route = createFileRoute("/gallery")({
   component: Gallery,
 });
 
-// Create array of imported product images
+// Create array of imported product images - removed img1 (first image)
 const productImages = [
-  img1, img2, img3, img4, img5, img6,
+  img2, img3, img4, img5, img6,
   img7, img8, img9, img10, img11, img12
 ];
 
@@ -65,8 +65,8 @@ function Gallery() {
 
   // Assign categories to each image based on index
   const getImageCategory = (index: number): string => {
-    if (index < 12) return "products";
-    if (index < 15) return "field";
+    if (index < 11) return "products"; // Changed from 12 to 11 since we removed one
+    if (index < 14) return "field";
     return "action";
   };
 

@@ -40,7 +40,8 @@ export function SiteFooter() {
           <h4 className="text-brand-yellow uppercase tracking-widest text-xs mb-4">Contact</h4>
           <ul className="space-y-3 text-sm text-brand-cream/80">
             <li className="flex gap-3"><MapPin className="w-4 h-4 mt-0.5 text-brand-red shrink-0" /> {COMPANY.address}</li>
-            {COMPANY.phones.map((p) => (
+            {/* Only display the second phone number (index 1) */}
+            {COMPANY.phones.slice(1).map((p) => (
               <li key={p} className="flex gap-3"><Phone className="w-4 h-4 mt-0.5 text-brand-red shrink-0" /> <a href={`tel:${p.replace(/\s/g, "")}`} className="hover:text-brand-yellow">{p}</a></li>
             ))}
             <li className="flex gap-3"><Mail className="w-4 h-4 mt-0.5 text-brand-red shrink-0" /> <a href={`mailto:${COMPANY.email}`} className="hover:text-brand-yellow">{COMPANY.email}</a></li>
@@ -52,7 +53,7 @@ export function SiteFooter() {
           <h4 className="text-brand-yellow uppercase tracking-widest text-xs mb-4">Certifications</h4>
           <ul className="space-y-2 text-sm text-brand-cream/70">
             <li>★ India's No.1 Reaper</li>
-            <li>ISO 9001:2008 Certified</li>
+            <li>ISO 9001:2015 Certified</li>
             <li>Approved by Govt. of India</li>
             <li>25+ Years of Trust & Excellence</li>
           </ul>

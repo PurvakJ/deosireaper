@@ -48,6 +48,10 @@ export const Route = createFileRoute("/enquiry")({
 });
 
 function Enquiry() {
+  // Only use the second phone number
+  const phoneNumbers = COMPANY.phones.slice(1);
+  const primaryPhone = phoneNumbers[0] || "+91 98157 80231";
+  
   const formRef = useRef<HTMLFormElement>(null);
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
@@ -194,10 +198,10 @@ function Enquiry() {
                       <p className="text-muted-foreground">
                         We'll be in touch shortly. For urgent needs, call{" "}
                         <a 
-                          href={`tel:${COMPANY.phones[1]?.replace(/\s/g, "")}`}
+                          href={`tel:${primaryPhone.replace(/\s/g, "")}`}
                           className="text-brand-red hover:underline"
                         >
-                          {COMPANY.phones[1]}
+                          {primaryPhone}
                         </a>
                         .
                       </p>
@@ -332,24 +336,23 @@ function Enquiry() {
                   Prefer to call?
                 </h3>
                 <ul className="space-y-5" role="list">
-                  {COMPANY.phones && COMPANY.phones.map((phone, index) => (
-                    <li key={index} className="flex gap-4">
-                      <div className="w-10 h-10 bg-brand-red/20 border border-brand-red/40 flex items-center justify-center shrink-0">
-                        <Phone className="w-4 h-4 text-brand-red" aria-hidden="true" />
+                  {/* Only display the second phone number */}
+                  <li className="flex gap-4">
+                    <div className="w-10 h-10 bg-brand-red/20 border border-brand-red/40 flex items-center justify-center shrink-0">
+                      <Phone className="w-4 h-4 text-brand-red" aria-hidden="true" />
+                    </div>
+                    <div>
+                      <div className="text-[10px] uppercase tracking-widest text-brand-cream/50">
+                        Phone
                       </div>
-                      <div>
-                        <div className="text-[10px] uppercase tracking-widest text-brand-cream/50">
-                          Phone {index > 0 ? index + 1 : ""}
-                        </div>
-                        <a
-                          href={`tel:${phone.replace(/\s/g, "")}`}
-                          className="text-lg hover:text-brand-yellow transition-colors"
-                        >
-                          {phone}
-                        </a>
-                      </div>
-                    </li>
-                  ))}
+                      <a
+                        href={`tel:${primaryPhone.replace(/\s/g, "")}`}
+                        className="text-lg hover:text-brand-yellow transition-colors"
+                      >
+                        {primaryPhone}
+                      </a>
+                    </div>
+                  </li>
 
                   {COMPANY.email && (
                     <li className="flex gap-4">

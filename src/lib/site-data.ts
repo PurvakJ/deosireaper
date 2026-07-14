@@ -54,8 +54,8 @@ export const PRODUCTS: Product[] = [
     ],
   },
   {
-    slug: "deosi-reaper-binder",
-    name: "Deosi Reaper Binder",
+    slug: "deosi-reaper-back",
+    name: "Deosi Reaper Back",
     tagline: "Cut & bind in a single pass — wheat & paddy binder",
     image: IMAGES.reaperOrangeGreen,
     category: "Reaper Binder",
@@ -75,8 +75,8 @@ export const PRODUCTS: Product[] = [
     ],
   },
   {
-    slug: "deosi-reaper-standard",
-    name: "Deosi Reaper — Standard",
+    slug: "deosi-reaper-front",
+    name: "Deosi Reaper — Front",
     tagline: "The Deosi original — India's No.1 tractor reaper",
     image: IMAGES.reaperYellowSonalika,
     category: "Tractor Mounted Reaper",
@@ -88,12 +88,12 @@ export const PRODUCTS: Product[] = [
       { label: "Working Width", value: "2230 mm" },
       { label: "Blades", value: "29" },
       { label: "Fingers", value: "15" },
-      { label: "Certification", value: "ISO 9001:2008 · Govt. of India Approved" },
+      { label: "Certification", value: "ISO 9001:2015 · Govt. of India Approved" },
     ],
   },
   {
-    slug: "deosi-multicrop-reaper",
-    name: "Deosi Multicrop Reaper",
+    slug: "deosi-multicrop-front-reaper",
+    name: "Deosi Multicrop Front Reaper",
     tagline: "One machine, seven crops — wheat to maize",
     image: IMAGES.reaperSwarajYellow,
     category: "Tractor Mounted Reaper",
@@ -107,11 +107,11 @@ export const PRODUCTS: Product[] = [
     ],
   },
   {
-    slug: "deosi-reaper-heavy-duty",
-    name: "Deosi Reaper — Heavy Duty",
+    slug: "deosi-reaper-heavy-duty-front",
+    name: "Deosi Reaper — Heavy Duty Front",
     tagline: "Reinforced for large-acreage seasons",
     image: IMAGES.reaperYellowCloseup,
-    category: "Tractor Mounted Reaper",
+    category: "Heavy Duty Reaper",
     description:
       "Extra bracing, thicker cutter bar and hardened chain drives for operators running long, continuous shifts. Same low-loss Deosi cut, built to punish.",
     specs: [
@@ -122,7 +122,7 @@ export const PRODUCTS: Product[] = [
     ],
   },
   {
-    slug: "deosi-back-reaper",
+    slug: "deosi-tractor-mounted-back-reaper",
     name: "Deosi Tractor Mounted Back Reaper",
     tagline: "Rear-mounted variant for tight field turns",
     image: IMAGES.reaperOrangeGreen,
@@ -153,8 +153,7 @@ export const COMPANY = {
   tagline: "A House of Agriculture Implements",
   founded: 1964,
   address: "Bathinda Road, Mansa Kenchiyan Chownk, Opp. Indian Oil Petrol Pump, Mansa, Punjab, 151505",
-  showroom: "Link Road, Near Bus Stand, Mansa – 151505, Punjab, India",
-  phones: ["+91 1652 227 103", "+91 98157 80231", "+91 98158 35221"],
+  phones: ["+91 98157 80231", "+91 98158 35221"],
   email: "deosireapers@gmail.com",
   website: "www.deosireaper.in",
 };

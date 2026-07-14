@@ -48,7 +48,7 @@ function ProductsIndex() {
       <PageHero
         eyebrow="Products"
         title="The Deosi lineup."
-        description="Six purpose-built reapers, each engineered for a specific crop mix and operator workflow. All ISO 9001:2008 certified and Govt. of India approved."
+        description="Six purpose-built reapers, each engineered for a specific crop mix and operator workflow. All ISO 9001:2015 certified and Govt. of India approved."
         image={IMAGES.posterMountedFront}
       />
 

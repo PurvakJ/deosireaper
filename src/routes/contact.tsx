@@ -31,7 +31,10 @@ export const Route = createFileRoute("/contact")({
 });
 
 function Contact() {
-  // Additional contact info
+  // Only use the second phone number
+  const phoneNumbers = COMPANY.phones.slice(1); // Keep only the second number
+  
+  // Additional contact info - removed showroom
   const contactDetails = [
     { 
       icon: MapPin, 
@@ -40,15 +43,9 @@ function Contact() {
       highlight: "Workshop & Manufacturing"
     },
     { 
-      icon: Building, 
-      label: "Showroom", 
-      value: COMPANY.showroom,
-      highlight: "Visit us to see products"
-    },
-    { 
       icon: Phone, 
       label: "Call Us", 
-      value: COMPANY.phones.join(" · "),
+      value: phoneNumbers.join(" · "),
       highlight: "Available during working hours"
     },
     { 
@@ -85,7 +82,7 @@ function Contact() {
       {/* Contact Cards */}
       <section className="py-12 md:py-20 bg-gradient-to-b from-white to-muted/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto">
             {contactDetails.map((c, i) => (
               <Reveal key={c.label} delay={i * 0.08}>
                 <div className="group bg-card border border-border p-6 sm:p-8 hover:border-brand-red hover:shadow-xl transition-all rounded-xl hover:-translate-y-1">
@@ -161,17 +158,17 @@ function Contact() {
                       highlight="Limited support"
                     />
                     <Row 
-                      icon={MapPin} 
-                      label="Showroom" 
-                      value={COMPANY.showroom}
-                      highlight="See products in action"
+                      icon={Phone} 
+                      label="Contact" 
+                      value={phoneNumbers[0] || "+91 98157 80231"}
+                      highlight="Call for inquiries"
                     />
                   </div>
 
                   {/* Quick Actions */}
                   <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-brand-cream/10 flex flex-wrap gap-2 sm:gap-3">
                     <a 
-                      href={`tel:${COMPANY.phones[0].replace(/\s/g, "")}`}
+                      href={`tel:${(phoneNumbers[0] || "+91 98157 80231").replace(/\s/g, "")}`}
                       className="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-dark text-white px-4 sm:px-5 py-2.5 sm:py-3 text-[10px] sm:text-xs uppercase tracking-widest font-semibold transition-colors rounded flex-1 sm:flex-none justify-center"
                     >
                       <Phone className="w-3 h-3 sm:w-4 sm:h-4" /> Call Now
@@ -186,7 +183,7 @@ function Contact() {
 
                   <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-brand-cream/10 text-[10px] sm:text-xs uppercase tracking-widest text-brand-cream/40 text-center sm:text-left">
                     Built Strong · Made to Perform · Backed by Trust
-        </div>
+                  </div>
                 </div>
               </div>
             </Reveal>
@@ -267,7 +264,7 @@ function Contact() {
               Email Us
             </a>
             <a 
-              href={`tel:${COMPANY.phones[0].replace(/\s/g, "")}`}
+              href={`tel:${(phoneNumbers[0] || "+91 98157 80231").replace(/\s/g, "")}`}
               className="border-2 border-white/40 hover:bg-white hover:text-brand-red px-6 sm:px-8 py-2.5 sm:py-3 text-xs sm:text-sm uppercase tracking-widest font-semibold transition-colors rounded text-center"
             >
               <Phone className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1 sm:mr-2" />

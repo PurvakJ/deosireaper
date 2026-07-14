@@ -69,7 +69,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: "Deosi Agriculture Works manufactures ISO-certified, Govt. of India approved tractor mounted reapers for wheat, paddy, mustard, soyabean, jubar, bajra & maize. Serving farmers across India since 1964." },
       { name: "author", content: "Deosi Agriculture Works" },
       { property: "og:title", content: "Deosi Reaper — India's No.1 Tractor Mounted Reaper" },
-      { property: "og:description", content: "ISO 9001:2008 certified, Govt. of India approved reapers. Since 1964, Mansa, Punjab." },
+      { property: "og:description", content: "ISO 9001:2015 certified, Govt. of India approved reapers. Since 1964, Mansa, Punjab." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

@@ -93,7 +93,7 @@ function Home() {
   ];
 
   const qualityBadges = [
-    { label: "ISO 9001:2008", icon: Award },
+    { label: "ISO 9001:2015", icon: Award },
     { label: "Govt. of India Approved", icon: CheckCircle },
     { label: "Made in India", icon: Star },
     { label: "3 Years Warranty", icon: Calendar },
@@ -105,6 +105,9 @@ function Home() {
     { title: "Low Maintenance", description: "Built with durable parts for long life", icon: Zap },
     { title: "Fuel Efficient", description: "Minimal fuel consumption per acre", icon: TrendingUp },
   ];
+
+  // Only use the second and third phone numbers (skip first)
+  const displayPhones = COMPANY.phones.slice(1); // Now shows only +91 98157 80231 and +91 98158 35221
 
   return (
     <>
@@ -142,7 +145,7 @@ function Home() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="mt-8 text-lg text-brand-cream/70 max-w-xl leading-relaxed"
             >
-              ISO 9001:2008 certified, Govt. of India approved tractor-mounted reapers.
+              ISO 9001:2015 certified, Govt. of India approved tractor-mounted reapers.
               Neat, clean harvesting at 1–2 inches from ground level — across wheat, paddy, mustard,
               soyabean, jubar, bajra and maize.
             </motion.p>
@@ -246,7 +249,7 @@ function Home() {
               that survive season after season without losing their edge.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              Every Deosi Reaper is Govt. of India approved and ISO 9001:2008 certified — a promise backed by
+              Every Deosi Reaper is Govt. of India approved and ISO 9001:2015 certified — a promise backed by
               dedicated after-sales service, nationwide.
             </p>
             
@@ -393,7 +396,7 @@ function Home() {
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4">
-            {COMPANY.phones.slice(0, 2).map((p) => (
+            {displayPhones.map((p) => (
               <a key={p} href={`tel:${p.replace(/\s/g, "")}`} className="border-2 border-white/40 hover:bg-white hover:text-brand-red px-6 py-3 text-sm uppercase tracking-widest font-semibold transition-colors flex items-center gap-2">
                 <Truck className="w-4 h-4" />
                 {p}
