@@ -17,12 +17,36 @@ export const Route = createFileRoute("/videos")({
 });
 
 const videos = [
-  { title: "Deosi Reaper — Wheat Harvesting Demo", desc: "Front-mounted reaper in a wheat field, Mansa." },
-  { title: "Deosi Binder Reaper — Cut & Bind", desc: "Single-pass cutting and bundling in paddy." },
-  { title: "Deosi Multicrop Reaper", desc: "Switching between wheat and mustard operations." },
-  { title: "Field Test — Punjab Season", desc: "Long-shift operation across a 12-acre plot." },
-  { title: "Reaper Maintenance Guide", desc: "In-field blade and finger replacement walkthrough." },
-  { title: "Farmer Testimonial — Haryana", desc: "Owner interview after three harvest seasons." },
+  { 
+    title: "Deosi Reaper — Wheat Harvesting Demo", 
+    desc: "Front-mounted reaper in a wheat field, Mansa.",
+    url: "https://youtu.be/lv65injrxvQ?si=aD1-ONJ0Pq9y4tGd"
+  },
+  { 
+    title: "Deosi Binder Reaper — Cut & Bind", 
+    desc: "Single-pass cutting and bundling in paddy.",
+    url: "https://youtu.be/v270pgb3-GA?si=S2zJJi5Yp21YX_g2"
+  },
+  { 
+    title: "Deosi Multicrop Reaper", 
+    desc: "Switching between wheat and mustard operations.",
+    url: "https://youtube.com/shorts/i6fD6YBfei4?si=XAk2spg1dNTHoOgR"
+  },
+  { 
+    title: "Field Test — Punjab Season", 
+    desc: "Long-shift operation across a 12-acre plot.",
+    url: "https://www.youtube.com/shorts/JtimKn9v7Jc"
+  },
+  { 
+    title: "Reaper Maintenance Guide", 
+    desc: "In-field blade and finger replacement walkthrough.",
+    url: "youtube.com/watch?v=56Y_jq_PA4s&feature=youtu.be"
+  },
+  { 
+    title: "Farmer Testimonial — Haryana", 
+    desc: "Owner interview after three harvest seasons.",
+    url: "https://youtu.be/lv65injrxvQ?si=aD1-ONJ0Pq9y4tGd" // Reusing first video as fallback
+  },
 ];
 
 function Videos() {
@@ -41,7 +65,7 @@ function Videos() {
             {videos.map((v, i) => (
               <Reveal key={i} delay={(i % 3) * 0.08}>
                 <a
-                  href="https://www.youtube.com/results?search_query=Deosi+Agriculture+Works+Deosi+Reaper"
+                  href={v.url}
                   target="_blank"
                   rel="noreferrer"
                   className="group block bg-card border border-border overflow-hidden hover:border-brand-red transition-all"
